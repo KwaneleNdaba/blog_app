@@ -1,13 +1,18 @@
 import React from 'react'
 import './home.css'
 import Header from '../../header/Header'
+import Sidebar from '../../sidebar/sidebar'
+import Posts from '../../posts/Posts'
 
 function Home() {
   return (
-    <div className='home'>
+  <>
     <Header/>
-      Homepage
-    </div>
+      <div className='home'>
+        <Posts/>
+        <Sidebar/>
+      </div>
+  </>
   )
 }
 
