@@ -8,7 +8,7 @@ function Header() {
 <span className="headerTitlesSm">Kwanele Prince Ndaba</span>
       <span className="headerTitlesLg">Blog</span>
 </div>
-<img className='headerImage' src = "https://images.unsplash.com/photo-1487035170094-b76fc43abdf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=500&q=60" alt = "image" />
+<img className='headerImage' src = "https://c8.alamy.com/comp/PF3PT8/desktop-source-code-and-technology-background-developer-or-programer-with-coding-and-programming-wallpaper-by-computer-language-and-source-code-com-PF3PT8.jpg" alt = "image" />
     </div>
   )
 }
