@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SinglePost from './pages/home/single/singlePost/singlePost';
 function App() {
 
-  const user = true;
+  const user = false;
   return (
     <Router>
       <div>

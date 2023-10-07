@@ -1,51 +1,39 @@
 import React from "react";
 import "./post.css";
+import { Link } from "react-router-dom";
 
-function Post() {
+function Post({posts}) {
   return (
     <div className="post">
-      <img
-        className="postImg"
-        src="https://c8.alamy.com/comp/2DAW2TH/react-js-inscription-against-laptop-and-code-background-learn-react-programming-language-computer-courses-training-2DAW2TH.jpg"
-        alt=""
-      />
+      {posts.photo == "" && (
+           <img
+           className="postImg"
+           src={posts.photo}
+           alt=""
+         />
+      )}
 
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCats">Music</span>
-          <span className="postCats">Life</span>
+
+{
+  posts.categories.map((cat,index) => {
+    return <span key = {index} className="postCats">{cat.name}</span>
+  })
+}
+        
         </div>
 
-        <span className="postTitle">Lorem ipsum dolor sit amet</span>
+        <Link className = "link" to = {`/post/${posts._id}`}>
+        <span className="postTitle">{posts.title}</span>
+        </Link>
+
+      
         <hr />
-        <span className="postDate">1 hour later</span>
+        <span className="postDate">{new Date(posts.createdAt).toDateString() }</span>
       </div>
       <p className="postDescription">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus modi
-        rerum quas voluptatum est ex delectus quaerat quos repellat ipsa
-        assumenda dolorem velit, incidunt pariatur illo sunt ut, consequuntur
-        corrupti!Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        Doloribus modi rerum quas voluptatum est ex delectus quaerat quos
-        repellat ipsa assumenda dolorem velit, incidunt pariatur illo sunt ut,
-        consequuntur corrupti!Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Doloribus modi rerum quas voluptatum est ex delectus
-        quaerat quos repellat ipsa assumenda dolorem velit, incidunt pariatur
-        illo sunt ut, consequuntur corrupti!Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Doloribus modi rerum quas voluptatum est
-        ex delectus quaerat quos repellat ipsa assumenda dolorem velit, incidunt
-        pariatur illo sunt ut, consequuntur corrupti!Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Doloribus modi rerum quas voluptatum est
-        ex delectus quaerat quos repellat ipsa assumenda dolorem velit, incidunt
-        pariatur illo sunt ut, consequuntur corrupti!Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Doloribus modi rerum quas voluptatum est
-        ex delectus quaerat quos repellat ipsa assumenda dolorem velit, incidunt
-        pariatur illo sunt ut, consequuntur corrupti!Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Doloribus modi rerum quas voluptatum est
-        ex delectus quaerat quos repellat ipsa assumenda dolorem velit, incidunt
-        pariatur illo sunt ut, consequuntur corrupti!Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Doloribus modi rerum quas voluptatum est
-        ex delectus quaerat quos repellat ipsa assumenda dolorem velit, incidunt
-        pariatur illo sunt ut, consequuntur corrupti!
+        {posts.description}
       </p>
     </div>
   );
