@@ -3,16 +3,21 @@ import "./post.css";
 import { Link } from "react-router-dom";
 
 function Post({posts}) {
+
+const PF =  "https://blog-olea.onrender.com/uploads/"
   return (
     <div className="post">
-      {posts.photo == "" && (
-           <img
-           className="postImg"
-           src={posts.photo}
-           alt=""
-         />
-      )}
-
+            {
+      posts.photo !== "" && (
+        <img
+        className="postImg"
+        src={PF + posts.photo}
+        alt=""
+      />
+      )
+     }
+        
+    
       <div className="postInfo">
         <div className="postCats">
 

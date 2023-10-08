@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./topbar.css"
 import { Link } from 'react-router-dom';
+import { Context } from '../../context/context';
 
 function Topbar() {
-const user = false;
+  const {user, dispatch} = useContext(Context);
+
+  
+  const PF =  "https://blog-olea.onrender.com/uploads/"
+const handleLogOut = () =>{
+ 
+  dispatch({type: "LOGOUT"})
+
+}
 
   return (
     <div className='top'>
@@ -27,7 +36,7 @@ Contact
 <li className='topListItem'><Link to= "/write-blog"  className='link'>
 Write
 </Link></li>
-<li className='topListItem'><Link to= "/"  className='link'>
+<li onClick={handleLogOut}  className='topListItem'><Link to= "/login"  className='link'>
 {user &&  "Logout" }
 </Link></li>
     </ul>
@@ -38,10 +47,10 @@ Write
      <div className="topRight">
 
       {
-        user ? (        <img className = "topImage" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt = "profile" />
+        user ? (     <Link to = "/settings">   <img className = "topImage" src={PF+user.profilePicture} alt = "profile" /></Link>
         ) : (<ul className='topList'>
           <li className= "topListItem">
-          <Link className = "link" to = "/login">Login</Link>
+          <Link  className = "link" to = "/login">Login</Link>
 
           </li>
           <li className= "topListItem">
